@@ -89,9 +89,7 @@ func fetch(uri string, resolvers []string) (dat []byte, err error) {
 	return
 }
 
-type scanFilter func(string) bool
-
-func scanDoamins(dat []byte, filter scanFilter) (domains *set.Set) {
+func scanDoamins(dat []byte, filter func(string) bool) (domains *set.Set) {
 	domains = set.New()
 	scanner := bufio.NewScanner(bytes.NewReader(dat))
 	for scanner.Scan() {
@@ -288,11 +286,6 @@ func main() {
 		for _, it := range bypassDomains.Flatten() {
 			nUpstream := fmt.Sprintf("[/%s/]%s", it, `#`)
 			options.Upstreams = append(options.Upstreams, nUpstream)
-		}
-
-		if len(c.StringSlice("bypass-list")) > 0 {
-			// only print log if bypass-list configured
-			log.Printf("%d bypass rules configured, totally", bypassDomains.Len())
 		}
 
 		for _, u := range initSpecUpstreams {
