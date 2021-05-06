@@ -12,6 +12,7 @@ var initSpecDomains = set.New(
 var initSpecUpstreams = []string{
 	"tls://101.101.101.101",
 	"tls://dns.adguard.com",
+	"https://odvr.nic.cz/doh",
 	"https://doh.dns.sb/dns-query",
 	"https://dns.twnic.tw/dns-query",
 	"https://dns.adguard.com/dns-query",

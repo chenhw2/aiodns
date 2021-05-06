@@ -156,7 +156,7 @@ type Options struct {
 // VersionString will be set through ldflags, contains current version
 var VersionString = "undefined" // nolint:gochecknoglobals
 
-const defaultTimeout = 10 * time.Second
+var defaultTimeout = 10 * time.Second
 
 // defaultDNS64Prefix is a so-called "Well-Known Prefix" for DNS64.
 // if dnsproxy operates as a DNS64 server, we'll be using it.

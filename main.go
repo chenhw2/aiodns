@@ -12,6 +12,7 @@ import (
 	"runtime"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/AdguardTeam/golibs/log"
 	"github.com/AdguardTeam/golibs/utils"
@@ -43,8 +44,9 @@ func init() {
 	specUpstream.Set("tls://162.159.36.1")
 	// specUpstream.Set("tls://dns.adguard.com")
 	// specUpstream.Set("quic://dns.adguard.com")
+	// specUpstream.Set("https://odvr.nic.cz/doh")
 	specUpstream.Set("https://dns.google/dns-query")
-	specUpstream.Set("https://dns11.quad9.net/dns-query")
+	specUpstream.Set("https://149.112.112.11/dns-query") // dns11.quad9.net
 	specUpstream.Set("https://doh.opendns.com/dns-query")
 	specUpstream.Set("https://cloudflare-dns.com/dns-query")
 
@@ -162,6 +164,11 @@ func main() {
 			Name:  "edns, e",
 			Usage: "Send EDNS Client Address to default upstreams",
 		},
+		cli.IntFlag{
+			Name:  "timeout, t",
+			Value: 3,
+			Usage: "Timeout of Each upstream, [1, 59] seconds",
+		},
 		cli.BoolFlag{
 			Name:  "cache, C",
 			Usage: "If specified, DNS cache is enabled",
@@ -206,6 +213,10 @@ func main() {
 			} else {
 				cliErrorExit(c, err)
 			}
+		}
+
+		if timeout := c.Int("timeout"); 0 < timeout && timeout < 60 {
+			defaultTimeout = time.Duration(timeout) * time.Second
 		}
 
 		options.EDNSAddr = c.String("edns")
