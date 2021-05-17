@@ -3,7 +3,7 @@ module github.com/honwen/aiodns
 go 1.16
 
 require (
-	github.com/AdguardTeam/dnsproxy v0.37.3
+	github.com/AdguardTeam/dnsproxy v0.37.4
 	github.com/AdguardTeam/golibs v0.4.5
 	github.com/Workiva/go-datastructures v1.0.53
 	github.com/ameshkov/dnscrypt/v2 v2.1.3

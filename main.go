@@ -99,7 +99,7 @@ func main() {
 	app.Name = "AIO DNS"
 	app.Usage = "All In One Clean DNS Solution."
 	app.Version = fmt.Sprintf("Git:[%s] (%s)", VersionString, runtime.Version())
-	// app.HideVersion = true
+
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
 			Name:  "listen, l",

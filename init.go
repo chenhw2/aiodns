@@ -666,6 +666,7 @@ wikileaks.de
 cfos.de
 mobileways.de
 savetibet.de
+berlinerbericht.de
 welt.de
 pinterest.de
 zukunftswerkstatt.de
@@ -777,6 +778,7 @@ disconnect.me
 hdlt.me
 npnt.me
 encrypt.me
+netalert.me
 riku.me
 btku.me
 textnow.me
@@ -4415,6 +4417,7 @@ instructables.com
 hkchronicles.com
 solidfiles.com
 lifemiles.com
+valeursactuelles.com
 gmodules.com
 adult-sex-games.com
 armorgames.com
