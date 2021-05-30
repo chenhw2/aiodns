@@ -235,6 +235,19 @@ func main() {
 			log.Printf("Using build-in special list")
 			specLists = append(specLists, specList)
 			specLists = append(specLists, tldnList)
+
+			// tldn := scanDoamins([]byte(tldnList), nil)
+			// tide := scanDoamins([]byte(specList), func(s string) bool {
+			// 	for _, it := range tldn.Flatten() {
+			// 		if strings.HasSuffix(s, "."+it.(string)) {
+			// 			return true
+			// 		}
+			// 	}
+			// 	return false
+			// })
+			// for _, it := range tide.Flatten() {
+			// 	fmt.Println(it)
+			// }
 		}
 
 		specDomains := scanDoamins([]byte(strings.Join(specLists, "\n")), nil)
